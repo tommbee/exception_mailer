@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_mail().
+ */
+function exception_mailer_mail($key, &$message, $params) {
+  if( $key === "notify_exception" ) {	
+    $body =
+	  "An exception has occurred.
+
+	  Exception: " . $params['exception'] . "
+
+	  Exception message: " . $params['message'] . "
+
+	  Thank you.";
+	$message['subject'] = t('An exception occurred (' . $params['exception'] . ')');
+    $message['body'][] = $body;
+  }
+
+}
