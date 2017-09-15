@@ -6,7 +6,7 @@ A Drupal module to handle error reporting on site wide exceptions.
 
 Download the module & enable it. Modules can be found on the 'extend' page in your Drupal installation.
 
-### Module Road Mmap
+### Module Road Map
 
 Intended additional features:
 - Editable email templates
