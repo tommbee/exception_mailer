@@ -12,3 +12,5 @@ Intended additional features:
 - Editable email templates
 - User role selection
 - Exception selection
+
+Drupal project page: https://www.drupal.org/project/exception_mailer
