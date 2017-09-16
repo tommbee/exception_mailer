@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Drupal\exception_mailer\Utility\UserRepository;
 use Drupal\exception_mailer\ExceptionMailer;
 use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Form\FormAjaxException;
 
 /**
  * Subscribe to thrown exceptions to send emails to admin users.
@@ -52,9 +53,11 @@ class ExceptionEventSubscriber implements EventSubscriberInterface {
       $data['message'] = $exception->getMessage();
       $queue->createItem($data);
     }
-    $this->logger->get('php')->error($exception->getMessage());
-    $response = new Response($exception->getMessage(), 500);
-    $event->setResponse($response);
+    if (!$exception instanceof FormAjaxException) {
+      $this->logger->get('php')->error($exception->getMessage());
+      $response = new Response($exception->getMessage(), 500);
+      $event->setResponse($response);
+    }
   }
 
   /**
