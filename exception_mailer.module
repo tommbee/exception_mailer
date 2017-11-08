@@ -1,20 +1,24 @@
 <?php
 
 /**
+ * @file
+ * This module emails exceptions to admin users.
+ */
+
+/**
  * Implements hook_mail().
  */
 function exception_mailer_mail($key, &$message, $params) {
-  if( $key === "notify_exception" ) {	
+  if ($key === "notify_exception") {
     $body =
-	  "An exception has occurred.
+    t('An exception has occurred.
 
-	  Exception: " . $params['exception'] . "
+    Exception: @exception
 
-	  Exception message: " . $params['message'] . "
+    Exception message: @message
 
-	  Thank you.";
-	$message['subject'] = t('An exception occurred (' . $params['exception'] . ')');
+    Thank you.', ['@exception' => $params['exception'], '@message' => $params['message']]);
+    $message['subject'] = t('An exception occurred (@exception)', ['@exception' => $params['exception']]);
     $message['body'][] = $body;
   }
-
 }

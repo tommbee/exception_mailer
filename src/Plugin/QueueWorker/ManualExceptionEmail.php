@@ -2,21 +2,20 @@
 
 namespace Drupal\exception_mailer\Plugin\QueueWorker;
 
-use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Queue\QueueWorkerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Processes exception email broadcasts.
  *
  * @QueueWorker(
- *   id = "exception_email_queue",
- *   title = @Translation("Email worker: email queue"),
- *   cron = {"time" = 60}
+ *   id = "manual_exception_email",
+ *   title = @Translation("Email worker: manual email"),
  * )
  */
-class ExceptionEmailQueue extends QueueWorkerBase implements ContainerFactoryPluginInterface {
+class ManualExceptionEmail extends QueueWorkerBase implements ContainerFactoryPluginInterface {
 
   /**
    * Mail manager service.

@@ -4,13 +4,12 @@ A Drupal module to handle error reporting on site wide exceptions.
 
 ### Installation
 
-Download the module & enable it. Modules can be found on the 'extend' page in your Drupal installation.
+Download the module & enable it. Modules can be found on the 'extend' page in
+your Drupal installation.
 
-### Module Road Map
+### Module Road Mmap
 
 Intended additional features:
 - Editable email templates
 - User role selection
 - Exception selection
-
-Drupal project page: https://www.drupal.org/project/exception_mailer
